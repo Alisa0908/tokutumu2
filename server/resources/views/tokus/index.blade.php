@@ -5,16 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>tokutumu</title>
+        <script src="{{ asset('js/app.js') }}"></script>
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
-        <ul>
-            @foreach ($tokus as $toku)
-            <li>
-                <a href="/tokus/{{ $toku->id }}">{{ $toku->name }}</a>
-            </li>
-            @endforeach
+        <div class="container">
             <button type="button" onclick="location.href='/tokus/'">おとしました</button>
-            <button type="button" onclick="location.href='/tokus/create'">ひろいました</button>
-    </ul>    
-</body>
+            <button type="button" onclick="location.href='/tokus/create'">ひろいました</button> 
+    </body>
 </html>
