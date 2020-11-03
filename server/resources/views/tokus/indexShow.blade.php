@@ -1,7 +1,7 @@
 <ul>
     @foreach ($tokus as $toku)
         <li>
-            <a href="/tokus/{{ $toku->id }}">{{ $toku->name }}</a>
+            <img src="{{ url($toku->img_path) }}" class="square-img-s">
         </li>
     @endforeach
 </ul>

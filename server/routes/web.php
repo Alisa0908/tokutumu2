@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', 'TokuController@index');
 Route::resource('tokus', 'TokuController');
+Route::get('/', 'FindController@home');
+
 

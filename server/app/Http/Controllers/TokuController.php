@@ -15,20 +15,20 @@ class TokuController extends Controller
         return view('tokus.index', ['tokus' => $tokus]);
     }
 
-    public function indexw(Request $request)
-    {
-        $name = $request->name;
-        $category = $request->category;
-        $query = Toku::query();
-        if($name) {
-            $query->where('name', 'like', '%' . $name . '%');
-        }
-        if($category) {
-            $query->where('category', 'like', '%' . $category . '%');
-        }
-        $tokus = $query->paginate(10);
-        return view('tokus.index', compact('tokus'));
-    }
+    // public function getIndex(Request $request)
+    // {
+    //     $name = $request->name;
+    //     $category = $request->category;
+    //     $query = Toku::query();
+    //     if($name) {
+    //         $query->where('name', 'like', '%' . $name . '%');
+    //     }
+    //     if($category) {
+    //         $query->where('category', 'like', '%' . $category . '%');
+    //     }
+    //     $tokus = $query->paginate(10);
+    //     return view('tokus.getIndex', compact('tokus'));
+    // }
 
     // public function indexw()
     // {
@@ -74,8 +74,8 @@ class TokuController extends Controller
 
     public function edit($id) 
     {
-        $toku = Toku::find($id);
-        return view('tokus.edit', ['toku' => $toku]);
+        $tokus = Toku::find($id);
+        return view('tokus.edit', ['toku' => $tokus]);
     }
 
     public function update(Request $request, $id) 
