@@ -10,7 +10,8 @@ class TokuController extends Controller
     public function index()
     {
         // モデル名::テーブル全件取得
-        $tokus = Toku::all();
+        // $tokus = Toku::all();
+        $tokus = Toku::paginate(10);
         // Itemsティレクトリーの中のindexページを指定し、itemsの連想配列を代入
         return view('tokus.index', ['tokus' => $tokus]);
     }

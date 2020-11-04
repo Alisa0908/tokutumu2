@@ -10,14 +10,15 @@
             </li>
             @endforeach
         </ul>
-    </div>
-</body>
-</html>
+<div class="d-flex justify-content-center">
+         {{ $tokus->links() }}
+     </div>
+
 @endsection
 
     
     
-    {{-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand logo" href="{{ route('tokus.index') }}">tokutumu</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -47,4 +48,4 @@
     </form>
     <a class="btn btn-default" href="/" role="button">戻る</a>
     <img src="tokutumu_img/img20.jpg"  class="img-circle img-responsive">
-     --}}
+    
