@@ -1,58 +1,79 @@
+* {
+  margin:0; padding:0;
+}
+
+/* INDEXの写真表示のクラス */
 .img-responsive {
     max-width: 100%;
     height: 250px;
     width: 250px;
 }
 
+/* SHOWの写真表示のクラス */
 .img-show{
     height: 400px;
     width: 400px;
 }
 
-/* .navbar-brand{
-    background-color: deepskyblue;
-} */
-
-.collapse{
-    background-color: rgba(163, 196, 201, 0.712);
-}
-
- background-color: rgba(163, 196, 201, 0.712);
-
-.footer {
-    /* position: absolute;
-    bottom: 0;
+/* HEADERたち */
+header {
     width: 100%;
-    /* Set the fixed height of the footer here */
-    height: 60px; 
-    background-color: black;
+    padding: 15px 0;
+    margin: 0 auto;
+    text-align: center;
+}
+header .headline{
+    font-size: 50px;
+    background-color: lightgrey;
 }
 
-.flex_test-box {
-    background-color: #eee;     /* 背景色指定 */
-    padding:  10px;             /* 余白指定 */
+.box {
+    margin-top:100px ;
+    margin:0; padding:0;
 }
- 
-.flex_test-item {
-    padding: 10px;
-    color:  #fff;               /* 文字色 */
-    margin:  10px;              /* 外側の余白 */
-    border-radius:  5px;        /* 角丸指定 */
+
+.nav-list {
+    text-align: center;
+    padding: 10px 0;
+    margin: 0 auto;
 }
- 
-.flex_test-item:nth-child(1) {
-    background-color: gray /* 背景色指定 */
-    flex-basis:  200px;
+.nav-list-item {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
 }
- 
-.flex_test-item:nth-child(2) {
-    background-color:  #4CAF50; /* 背景色指定 */
+
+
+/* .wrapper{
+    min-height: 100vh;
+    position: relative;/*←相対位置*/
+    /* padding-bottom: 120px;/*←footerの高さ*/
+    /* box-sizing: border-box;←全て含めてmin-height:100vhに */
+/* } */ 
+/* footer{
+    width: 100%;
+    background-color:gray ;
+    color: #fff;
+    text-align: center;
+    padding: 60px 0;
+    position: absolute;
+    bottom: 0; /*下に固定*/
+
+.wrapper{
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 120px;
+    box-sizing: border-box;
 }
- 
-.flex_test-item:nth-child(3) {
-    background-color: #3F51B5; /* 背景色指定 */
+
+footer{
+    width: 100%;
+    height: 100px;
+    background-color: #174a5c;
+    color: white;
+    text-align: center;
 }
- 
-.flex_test-item:nth-child(4) {
-    background-color:  #00BCD4; /* 背景色指定 */
+ul.footer-menu li {
+display: inline;
 }
+

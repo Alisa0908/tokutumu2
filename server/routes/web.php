@@ -22,3 +22,11 @@ Route::get('/', 'FindController@home');
 
 Route::get('/tokus/{toku}/edit', 'tokuController@edit')->name('tokus.edit');
 Route::post('/tokus/{toku}/edit', 'tokuController@update');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -32,20 +32,13 @@
 
 
 {{-- 写真だけでリスト表示して､さらに押すと詳細に飛びたい --}}
-<div >
+<div>
 <ul>
     @foreach ($tokus as $toku)
         <li style="list-style: none; display:inline-flex">
             <a href="tokus/{{ $toku->id }}" ><img src="{{ url($toku->image_url) }}" class="img-responsive" ></a>
             {{-- style="background-size:cover" style="background-size:cover class="list-unstyled border mb-5 pl-3 shadow" --}}
-
         </li>
-    @endforeach
-
-    @foreach ($tokus as $toku)
-        
-        <img src="uploads/{{ $toku->image_url }}" width="200px" height="200px">
-        
     @endforeach
 </ul>
 </div>
