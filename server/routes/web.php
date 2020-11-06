@@ -20,4 +20,5 @@ Route::get('/', function () {
 Route::resource('tokus', 'TokuController');
 Route::get('/', 'FindController@home');
 
-
+Route::get('/tokus/{toku}/edit', 'tokuController@edit')->name('tokus.edit');
+Route::post('/tokus/{toku}/edit', 'tokuController@update');
