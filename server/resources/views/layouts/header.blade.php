@@ -1,13 +1,9 @@
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
 <header>
-  <h1 class="headline">
-    <a>tokutumu</a>
-  </h1>
-  <ul class="nav-list">
-    <li class="nav-list-item" href="/">Home</li>
-    <li class="nav-list-item">About</li>
-    <li class="nav-list-item">Topic</li>
-  </ul>
+    <h1 class="headline">
+        <a>tokutumu</a>
+    </h1>
 </header>
 <hr>
 

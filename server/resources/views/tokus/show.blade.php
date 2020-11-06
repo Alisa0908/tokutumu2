@@ -10,9 +10,7 @@
 <colgroup span="1" style="width:200px;background-color:#efefef;"></colgroup>
 
 <tbody>   
-    {{-- <tr>
-        <td><img src="{{ url($toku->image_url) }}" class="img-show"></td>
-    </tr> --}}
+    
     <tr>
         <th>届けた場所</th>
         <td>{{ $toku->deliver }}</td>

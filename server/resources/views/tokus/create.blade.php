@@ -38,7 +38,7 @@
         </p>
         <p>
             写真<br>
-            <input type="file" class="form-control" name="image_url"  value="{{ old('image_url') }}">
+            <input type="text" class="form-control" name="image_url"  value="{{ old('image_url') }}">
         </p>
         
         {{-- <input type="file" name="profile_img"> --}}
@@ -47,8 +47,8 @@
             <textarea class="form-control" rows="3" value="詳細" name="description"></textarea>
         </p>
         <div>
-            <button type="button" onclick="location.href='/tokus'">戻る</button>
-            <button type="submit" onclick="location.href='/tokus'">登録</button>
+            <button type="submit" class="btn btn-outline-success my-3 mx-1" onclick="location.href='/tokus'">登録</button>
+            <button type="button" class="btn btn-outline-success my-3 mx-1" onclick="location.href='/tokus'">戻る</button>
         </div>
     </form>
 </div>
