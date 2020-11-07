@@ -2,7 +2,7 @@
 
 <header>
     <h1 class="headline">
-        <a>tokutumu</a>
+        <a class="navbar-brand" href="/">tokutumu</a>
     </h1>
 </header>
 <hr>
