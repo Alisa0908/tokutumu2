@@ -10,7 +10,7 @@
 <div class="d-flex justify-content-center">
     <button type="button" onfocus="this.blur();" class="box1 mt-5" onclick="location.href='/tokus'">
         探している方はこちら<br>
-        <img src="http://pictogram2.com/p/p0950/1.png" class="pikuto">
+        <img src="http://pictogram2.com/p/p0246/1.png" class="pikuto">
     </button>
 {{-- </div> --}}
 

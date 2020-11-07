@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    const prefectues = require('./prefectures');
+    const http = require('http');
+    const endpoint = 'http://www.land.mlit.go.jp/webland/api/CitySearch';
+    const httpGet = url => {
+        return new Promise((resolve, reject) => {
+            const req = http.get(url, res => {
+                if (res.statusCode < 200 || res.statusCode > 299) {
+                    reject(new Error(res.statusCode));
+                }
+                const body = [];
+                res.on('data', chunk => body.push(chunk));
+                res.on('end', () => resolve(body.join('')));
+            });
+            req.on('error', err => reject(err))
+        })
+    };
+    const getCities = async () => {
+        for (let pref of prefectues) {
+            const url = '${endpoint}?area=${pref.id}'';
+            const res = JSON.parse(await httpGet(url));
+            pref.cities = res.data;
+        }
+    };
+    getCities().then(() => {
+        console.log(JSON.stringify(prefectues));
+    });
+    
+    
+    [
+        {
+            "id": "01",
+            "name": "北海道",
+            "name_en": "hokkaido"
+        },
+        {
+            "id": "02",
+            "name": "青森県",
+            "name_en": "aomori prefecture"
+        },
+        {
+            "id": "03",
+            "name": "岩手県",
+            "name_en": "iwate prefecture"
+        },
+        
+    ]
+        </script>
+
+
+    
+</body>
+</html>

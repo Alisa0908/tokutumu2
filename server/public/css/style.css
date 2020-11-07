@@ -78,9 +78,9 @@ footer{
     font-size: 40px;
     color: #89c7de;
     border-style:dotted;
-  outline: none;
-   -webkit-tap-highlight-color:rgba(0,0,0,0);
-  cursor:pointer;
+    outline: none;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    cursor:pointer;
 }
 
 *:focus {
