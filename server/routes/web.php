@@ -17,19 +17,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('tokus', 'TokuController');
-// Route::get('/', 'FindController@home');
-Route::get('/', function (){
-    return view('welcome');
+Route::resource('tokus', 'TokuController')->only(['index', 'create', 'store']);
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('tokus', 'TokuController')->except(['index', 'create', 'store', 'edit']);
 });
 
+Route::get('/', 'FindController@home');
+// Route::get('/', function (){
+//     return view('welcome');
+// });
 
-Route::get('/tokus/{toku}/edit', 'tokuController@edit')->name('tokus.edit');
-Route::post('/tokus/{toku}/edit', 'tokuController@update');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 

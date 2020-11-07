@@ -48,8 +48,8 @@
             <textarea class="form-control" rows="3" value="詳細" name="description"></textarea>
         </p>
         <div>
-            <button type="submit" class="btn btn-outline-success my-3 mx-1" onclick="location.href='/tokus'">登録</button>
-            <button type="button" class="btn btn-outline-success my-3 mx-1" onclick="location.href='/tokus'">戻る</button>
+            <button type="submit" class="btn btn-outline-info my-3 mx-1" onclick="location.href='/tokus'">登録</button>
+            <button type="button" class="btn btn-outline-info my-3 mx-1" onclick="location.href='/tokus'">戻る</button>
         </div>
     </form>
 </div>

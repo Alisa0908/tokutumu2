@@ -32,7 +32,7 @@
     <input type="submit" class="btn btn-outline-danger" value="みつけた" onclick="if(!confirm('この投稿を消してもよろしいですか?')){return false};">
 </form>
 
-<a class="btn btn-outline-success mx-2" href="/tokus" role="button">一覧に戻る</a>
+<a class="btn btn-outline-info mx-2" href="/tokus" role="button">一覧に戻る</a>
 </div>
 
 @endsection
