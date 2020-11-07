@@ -6,10 +6,15 @@
 
 {{-- ボタンの大きさもう少し大きくしたい --}}
 
-<div class="container mt-5">
-    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="location.href='/tokus'">探している方はこちら</button>
-    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="location.href='/tokus/create'">拾った方はこちら</button>
-</div> 
+{{-- <div class="container mt-5"> --}}
+<div class="d-flex justify-content-center">
+    <button type="button" class="box1 mt-5" onclick="location.href='/tokus'">探している方はこちら</button>
+</div>
+
+<div class="d-flex justify-content-center">
+    <button type="button" class="box1 mt-5" onclick="location.href='/tokus/create'">拾った方はこちら</button>
+</div>
+{{-- </div>  --}}
 
 
 

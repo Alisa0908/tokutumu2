@@ -13,7 +13,7 @@
             </P>
         </div>
     @endif
-    
+
 {{-- ひろった人が入力するところ --}}
     <h1 >ひろったものの登録</h1>
     <form action="/tokus" method="post" enctype='multipart/form-data'>
@@ -39,7 +39,7 @@
         </p>
         <p>
             写真<br>
-            <input type="text" class="form-control" placeholder="URL" input name="image_url"  value="{{ old('image_url') }}">
+            <input type="file" class="form-control" placeholder="URL" input name="image_url"  value="{{ old('image_url') }}">
         </p>
         
         {{-- <input type="file" name="profile_img"> --}}

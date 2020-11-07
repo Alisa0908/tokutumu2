@@ -69,13 +69,11 @@ footer{
     bottom: 0; /*下に固定*/
 }
 
-ul.footer-menu li {
-display: inline;
-} 
-
 .box1{
     width:500px;
-    height:300px;
-    background:gold;
-    border-radius:30px;
+    height:400px;
+    background-color: rgb(237, 241, 241);
+    border-radius:50px;
+    font-size: 40px;
+    color: #89c7de;
 }

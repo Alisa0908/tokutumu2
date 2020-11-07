@@ -33,10 +33,11 @@ class TokuController extends Controller
 
     public function store(TokuRequest $request)
     {
-        if ($file = $request->profile_img) {
-            $fileName = time() . $file->getClientOriginalName();
+        if ($file = $request->image_url) {
+            $fileName = date('YmdHis') . $file->getClientOriginalName();
             $target_path = public_path('uploads/');
-            $file->move($target_path, $fileName);
+            $file->storeAs('public/toku_img2', $fileName);
+            // $file->move($target_path, $fileName);
         } else {
             $fileName = "";
         }
@@ -46,7 +47,7 @@ class TokuController extends Controller
         $toku->find = $request->find;
         $toku->deliver = $request->deliver;
         $toku->category = $request->category;
-        $toku->image_url = $fileName;
+        $toku->image_url = 'storage/toku_img2/' . $fileName;
         $toku->timestamps =false;
 
         $toku->save();
