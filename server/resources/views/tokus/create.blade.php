@@ -15,7 +15,10 @@
     @endif
 
 {{-- ひろった人が入力するところ --}}
+<div class="mt-2" style="display:inline-flex">
     <h1 >ひろったものの登録</h1>
+    <img src="http://pictogram2.com/p/p0766/1.png" class="pikutoMini">
+</div>
     <form action="/tokus" method="post" enctype='multipart/form-data'>
         @csrf
         <p>
@@ -48,7 +51,8 @@
             <textarea class="form-control" rows="3" value="詳細" name="description"></textarea>
         </p>
         <div>
-            <button type="submit" class="btn btn-outline-info my-3 mx-1" onclick="location.href='/tokus'">登録</button>
+            <button type="submit" href="/tokus/thanks" class="btn btn-outline-info my-3 mx-1" onclick="if(!confirm('編集し直すことはできません｡間違えはありませんか?')){return false};">登録</button>
+            {{-- <button type="submit" class="btn btn-outline-info my-3 mx-1" onclick="location.href='/tokus'">登録</button> --}}
             <button type="button" class="btn btn-outline-info my-3 mx-1" onclick="location.href='/tokus'">戻る</button>
         </div>
     </form>

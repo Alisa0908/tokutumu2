@@ -8,12 +8,20 @@
     height: 250px;
     width: 250px;
     object-fit: cover;
+    border: solid;
+    border: 1px solid;
+    border-color: gray;
 }
 
 /* SHOWの写真表示のクラス */
 .img-show{
     height: 400px;
     width: 400px;
+}
+
+.image_login{
+    height: 90px;
+    width: 90px;
 }
 
 .logo{
@@ -53,6 +61,7 @@ header .headline{
     margin: 0 20px;
 }
 
+/* footerたち */
 .wrapper{
     min-height: 100vh;
     position: relative;
@@ -70,6 +79,7 @@ footer{
     bottom: 0; /*下に固定*/
 }
 
+/* INDEXのボタンデザイン */
 .box1{
     width:500px;
     height:400px;
@@ -83,12 +93,31 @@ footer{
     cursor:pointer;
 }
 
+/* 押したときの青い線なくした */
 *:focus {
 outline: none;
 }
 
+/* ピクトさんの大きさ */
 .pikuto{
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
+}
+.pikutoMini{
+    width: 40px;
+    height: 40px;
 }
 
+.card-header{
+    font-size: 30px;
+}
+
+｡dropdown-item{
+    color: white;
+}
+
+
+.thanks{
+    font-size: 100px;
+    color: #89c7de;
+}

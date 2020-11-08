@@ -22,6 +22,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('tokus', 'TokuController')->except(['index', 'create', 'store', 'edit']);
 });
 
+Route::get('/tokus/thanks', 'FindController@thanks');
 Route::get('/', 'FindController@home');
 // Route::get('/', function (){
 //     return view('welcome');

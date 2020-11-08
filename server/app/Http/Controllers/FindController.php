@@ -10,4 +10,9 @@ class FindController extends Controller
     {
         return view('tokus.home');
     }
+
+    public function thanks()
+    {
+        return view('tokus.thanks');
+    }
 }

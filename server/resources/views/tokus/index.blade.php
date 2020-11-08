@@ -5,8 +5,9 @@
 @section('content')
 
 
-<div class="mt-2">
-<h1>探しているもの</h1>
+<div class="mt-2" style="display:inline-flex">
+    <h1>探しているもの</h1>
+    <img src="http://pictogram2.com/p/p0246/1.png" class="pikutoMini">
 </div>
 
 {{-- 検索機能のところ --}}
