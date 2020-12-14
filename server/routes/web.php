@@ -17,12 +17,15 @@ Route::get('/test', function () {
     return view('test');
 });
 
+// resourceにより6つはいってしまうが3つしか使わなかった
 Route::resource('tokus', 'TokuController')->only(['index', 'create', 'store']);
+
+// exceptで指定した所以外はログインが必要
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('tokus', 'TokuController')->except(['index', 'create', 'store', 'edit']);
 });
 
-Route::get('/tokus/thanks', 'FindController@thanks');
+Route::get('/thanks', 'FindController@thanks');
 Route::get('/', 'FindController@home');
 // Route::get('/', function (){
 //     return view('welcome');

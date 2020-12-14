@@ -2,7 +2,7 @@
 
 <header>
     <div class="headline navbar">
-        <a class="navbar-brand " href="/">tokutumu</a>
+        <a class="navbar-brand " href="/">TokuTumu</a>
 
     {{-- ここからログイン機能もろもろ --}}
     <ul class="navbar-nav ml-auto">

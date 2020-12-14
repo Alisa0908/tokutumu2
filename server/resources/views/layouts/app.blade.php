@@ -10,10 +10,19 @@
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     </head>
     <body>
-    @include('layouts.header')
+        @include('layouts.header')
         <div class="container">
-            @yield('content')
+            <div class="row" id="content">
+                <div class="col-md-3">
+                    @include('layouts.sidebar')
+                </div>
+                <div class="col-md-9">
+                    @yield('content')
+                </div>
+            </div>
         </div>
+ 
+    <div class="col-md-9">
+        @include('layouts.footer')
     </body>
-    @include('layouts.footer')
 </html>
