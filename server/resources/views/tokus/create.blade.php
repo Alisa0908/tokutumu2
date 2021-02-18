@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', '一覧画面')
+@section('title','register')
 
 @section('content')
 
@@ -16,9 +16,11 @@
 
 {{-- ひろった人が入力するところ --}}
 <div class="mt-2" style="display:inline-flex">
-    <h1 >ひろったものの登録</h1>
+    <h1 >ひろったもの</h1>
     <img src="http://pictogram2.com/p/p0766/1.png" class="pikutoMini">
 </div>
+
+{{-- FORMタグの､name属性がついているものはすべてサーバー側に送信される --}}
     <form action="/tokus" method="post" enctype='multipart/form-data'>
         @csrf
         <p>
@@ -33,25 +35,25 @@
             </select>
         </p>
         <p>
-            見つけた場所<br>
-            <input type="text" class="form-control" placeholder="Text" input name="find" value="{{ old('find') }} ">
+            見つけた場所 *市の名前<br>
+            <input type="text" class="form-control" placeholder="市の名前" input name="find">
         </p>
         <p>
             届けた場所<br>
-            <input type="text" class="form-control" placeholder="Text" input name="deliver" value="{{ old('deliver') }} ">
+            <input type="text" class="form-control" placeholder="届けていない場合は届けていないと記載" input name="deliver">
         </p>
         <p>
             写真<br>
-            <input type="file" class="form-control" placeholder="URL" input name="image_url"  value="{{ old('image_url') }}">
+            <input type="file" class="form-control" input name="image_url">
         </p>
         
         {{-- <input type="file" name="profile_img"> --}}
         <p>
             詳細(任意)<br>
-            <textarea class="form-control" rows="3" value="詳細" name="description"></textarea>
+            <textarea class="form-control" rows="3" name="description"></textarea>
         </p>
         <div>
-            <button type="submit" href="/tokus/thanks" class="btn btn-outline-info my-3 mx-1" onclick="if(!confirm('編集し直すことはできません｡間違えはありませんか?')){return false};">登録</button>
+            <button type="submit" href="/tokus/thanks" class="btn btn-outline-info my-3 mx-1" onclick="if(!confirm('登録してよろしいですか?')){return false};">登録</button>
             {{-- <button type="submit" class="btn btn-outline-info my-3 mx-1" onclick="location.href='/tokus'">登録</button> --}}
             <button type="button" class="btn btn-outline-info my-3 mx-1" onclick="location.href='/tokus'">戻る</button>
         </div>

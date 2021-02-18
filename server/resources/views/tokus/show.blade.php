@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', '一覧画面')
+@section('title','detail')
 
 @section('content')
 
-<img src="{{ url($toku->image_url) }}" class="img-show">
+<img src="data:image/png;base64,<?= $toku->image ?>" class="img-show">
 
 <table class="table-bordered my-5 mt-3">
 <colgroup span="1" style="width:200px;background-color:#efefef;"></colgroup>
@@ -32,6 +32,7 @@
     <input type="submit" class="btn btn-outline-danger" value="みつけた" onclick="if(!confirm('この投稿を消してもよろしいですか?')){return false};">
 </form>
 
+<a class="btn btn-outline-info mx-2" href="/tokus/{{ $toku->id }}/edit" role="button">編集する</a>
 <a class="btn btn-outline-info mx-2" href="/tokus" role="button">一覧に戻る</a>
 </div>
 

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Toku;
 use Illuminate\Http\Request;
 use App\Http\Requests\TokuRequest;
+use Intervention\Image\Facades\Image;
+// use Illuminate\Support\Facades\Storage;
 
 class TokuController extends Controller
 {
@@ -12,9 +14,9 @@ class TokuController extends Controller
     {
         $find = $request->find;
         $category = $request->category;
-
+        
         $query = Toku::query();
-
+        
         if($find) {
             $query->where('find', 'like', '%' . $find . '%');
         }
@@ -29,28 +31,42 @@ class TokuController extends Controller
     public function create()
     {
         return view('tokus.create');
+
     }
 
     public function store(TokuRequest $request)
     {
-        if ($file = $request->image_url) {
+        if ($file = ($request->image_url)) {
             $fileName = date('YmdHis') . $file->getClientOriginalName();
-            $target_path = public_path('uploads/');
-            $file->storeAs('public/toku_img2', $fileName);
-            // $file->move($target_path, $fileName);
+            $upload_file_path = $request->image_url->getRealPath();
+            Image::make($upload_file_path)
+            ->resize(300, 300)//size変更
+            // ->orientate()
+            ->save($upload_file_path);
+            $image = base64_encode(file_get_contents($request->image_url->getRealPath()));
         } else {
             $fileName = "";
         }
 
-        $toku = new Toku;
+        // PHPで受け取る場合は"$category = $_GET["category"];"(Getリクエストの場合)だが､Controllerて受け取る$request変数はこれをショートカットできる
+        $toku = new Toku; //Tokuのモデルを作成
+        // モデルに各フィールド(=カラム)の値をセット
         $toku->description = $request->description;
         $toku->find = $request->find;
         $toku->deliver = $request->deliver;
         $toku->category = $request->category;
         $toku->image_url = 'storage/toku_img2/' . $fileName;
-        $toku->timestamps =false;
-
+        $toku->image = $image;
+        $toku->timestamps =false;       
+        // tokusテーブルにレコードを新規登録
         $toku->save();
+
+//      ↑ピュアphpで書く場合、
+//      ①DBに接続
+//      ②SQLのINSERT文を記述（各カラムの値を設定）
+//      ③commitを送信（レコードが新規登録される）
+//      ④DBの接続を切断
+//      といった流れの処理を実装しますが、それをフレームワーク内部で全部やってくれてます。
 
         return redirect('/tokus');
     }
@@ -63,21 +79,28 @@ class TokuController extends Controller
 
     public function edit($id) 
     {
-        $tokus = Toku::find($id);
-        return view('tokus.edit', ['toku' => $tokus]);
+        $toku = Toku::find($id);
+        return view('tokus.edit', ['toku' => $toku]);
     }
 
     public function update(TokuRequest $request, $id) 
     {
+        $image = base64_encode(file_get_contents($request->image_url->getRealPath()));
         // ここはidで探して持ってくる以外はstoreと同じ
         $toku = Toku::find($id);
+        
         // 値の用意
-        $toku->name = $request->name;
-        $toku->description = $request->description;
+        $toku->category = $request->category;
         $toku->find = $request->find;
         $toku->deliver = $request->deliver;
-        $toku->category = $request->category;
-        $toku->image_url = $request->image_url;
+        $toku->image = $image;
+    //     if ($image != null) {
+
+    // }else{
+    //         //もとの値を引き継いでくれのコマンド､idとか関係ある?
+    //     $toku->image = $image;
+    //     }
+        $toku->description = $request->description;
         $toku->timestamps =false;
         // 保存
         $toku->save();

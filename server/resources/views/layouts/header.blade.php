@@ -1,8 +1,9 @@
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
+
 <header>
     <div class="headline navbar">
-        <a class="navbar-brand " href="/">TokuTumu</a>
+        <a class="navbar-brand " href="/">Atta!</a>
 
     {{-- ここからログイン機能もろもろ --}}
     <ul class="navbar-nav ml-auto">
@@ -12,7 +13,7 @@
                 </li>
                 @if (Route::has('register'))
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">{{ __('Tokutumuへ登録') }}</a>
+                        <a class="nav-link" href="{{ route('register') }}">{{ __('登録する') }}</a>
                     </li>
                 @endif
                 @else

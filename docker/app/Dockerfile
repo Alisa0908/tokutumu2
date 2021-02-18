@@ -4,8 +4,10 @@ COPY php.ini /usr/local/etc/php/
 
 # package update & install
 # Dockerは文を実行するたびにイメージのレイヤーを作成されてしまうので ; でワンライナーにする \ で次行に続く
-RUN apt-get update && apt-get install -y zlib1g-dev libzip-dev mysql-common wget locales npm \
+RUN apt-get update && apt-get install -y zlib1g-dev libzip-dev mysql-common wget locales npm libjpeg-dev libfreetype6-dev\
   && docker-php-ext-install zip pdo_mysql \
+  && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+  && docker-php-ext-install -j$(nproc) gd \
   && locale-gen ja_JP.UTF-8 \
   && echo "export LANG=ja_JP.UTF-8" >> ~/.bashrc \
   && wget https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-community-client-core_8.0.17-1debian10_amd64.deb \

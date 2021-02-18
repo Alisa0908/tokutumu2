@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><img src="https://icon-pit.com/wp-content/uploads/2019/01/user_login_icon_4394-300x300.png" class="image_login">{{ __('Tokutumuへログインする') }}</div>
+                <div class="card-header"><img src="https://icon-pit.com/wp-content/uploads/2019/01/user_login_icon_4394-300x300.png" class="image_login">{{ __('Atta!へログインする') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">

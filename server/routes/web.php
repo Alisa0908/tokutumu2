@@ -13,16 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/test', function () {
-    return view('test');
-});
+// Route::get('/test', function () {
+//     return view('test');
+// });
 
-// resourceにより6つはいってしまうが3つしか使わなかった
-Route::resource('tokus', 'TokuController')->only(['index', 'create', 'store']);
+// resourceにより6つはいってしまうが3つじゃなくて4つに変更しか使わなかった
+Route::resource('tokus', 'TokuController')->only(['index', 'create', 'store', 'edit']);
 
 // exceptで指定した所以外はログインが必要
 Route::group(['middleware' => 'auth'], function () {
-    Route::resource('tokus', 'TokuController')->except(['index', 'create', 'store', 'edit']);
+    Route::resource('tokus', 'TokuController')->except(['index', 'create', 'store']);
 });
 
 Route::get('/thanks', 'FindController@thanks');

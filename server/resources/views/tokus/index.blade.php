@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', '一覧画面')
+@section('title','search')
 
 @section('content')
 
@@ -11,7 +11,7 @@
 </div>
 
 {{-- 検索機能のところ --}}
-<form mechod="GET" action="{{ route('tokus.index') }}">
+<form method="GET" action="{{ route('tokus.index') }}">
     <div class="mt-3">カテゴリー
         <select class="form-control mt-1" name="category" type="search" value="{{ old('category') }}">
             <option value="選択してください" selected="selected">選択してください</option>
@@ -37,17 +37,24 @@
 <ul>
     @foreach ($tokus as $toku)
         <li style="list-style: none; display:inline-flex">
-            <a href="tokus/{{ $toku->id }}" ><img src="{{ url($toku->image_url) }}" class="img-responsive" ></a>
+            {{-- <a href="tokus/{{ $toku->id }}" ><img src="{{asset($toku->image_url)}}" class="img-responsive" ></a> --}}
+            <a href="tokus/{{ $toku->id }}" >
+                @if (isset( $toku->image ))                     
+                    <img src="data:image/png;base64,<?= $toku->image ?>" class="img-responsive" >
+                @else
+                    <span></span>
+                @endif
+            </a>
             {{-- style="background-size:cover" style="background-size:cover class="list-unstyled border mb-5 pl-3 shadow" --}}
         </li>
     @endforeach
 </ul>
-</div>
+</div> 
 
 {{-- ページネイトのボタン作成 --}}
 <div class="d-flex justify-content-center">
     {{ $tokus->links() }}
-</div>
+</div> 
 
 @endsection
     
